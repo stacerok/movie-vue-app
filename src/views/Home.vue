@@ -34,6 +34,32 @@
         {{ movie.year }}
         <br />
         {{ movie.genre_name }}
+        <br />
+        <button v-on:click="showMovie(movie)">More Info.</button>
+        <dialog id="movie-details">
+          <form method="dialog">
+            <h1>Movie Info</h1>
+            <p>
+              Title:
+              <input type="text" v-model="currentMovie.title" />
+            </p>
+            <p>
+              Plot:
+              <input type="text" v-model="currentMovie.plot" />
+            </p>
+            <p>
+              Year:
+              <input type="text" v-model="currentMovie.year" />
+            </p>
+            <p>
+              Genre:
+              <input type="text" v-model="currentMovie.genre_name" />
+            </p>
+            <button v-on:click="updateMovie(currentMovie)">Update</button>
+            <button v-on:click="destroyMovie(currentMovie)">Delete</button>
+            <button>Close</button>
+          </form>
+        </dialog>
       </div>
     </div>
   </div>
@@ -52,6 +78,7 @@ export default {
       newMoviePlot: "",
       newMovieYear: "",
       newMovieGenre: "",
+      currentMovie: {},
     };
   },
   created: function () {
@@ -78,10 +105,28 @@ export default {
           console.log("Successfully added movie!", response.data);
           this.movies.push(response.data);
         })
-        .catch((error) => {
-          console.log(error.response.data.errors);
-          this.errors = error.response.data.errors;
-        });
+        .catch((error) => console.log(error.response));
+    },
+    showMovie: function (movie) {
+      console.log(movie), (this.currentMovie = movie), document.querySelector("#movie-details").showModal();
+    },
+    updateMovie: function (movie) {
+      var params = {
+        title: movie.title,
+        plot: movie.plot,
+        year: movie.year,
+        genre: movie.genre_name,
+      };
+      axios.patch("/api/movies/" + movie.id, params).then((response) => {
+        console.log("Success", response.data);
+      });
+    },
+    destroyMovie: function (movie) {
+      axios.delete("/api/movies/" + movie.id).then((response) => {
+        console.log("Movie deleted", response.data);
+        var index = this.movies.indexOf(movie);
+        this.movies.splice(index, 1);
+      });
     },
   },
 };
