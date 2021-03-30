@@ -33,7 +33,7 @@
         <br />
         {{ movie.year }}
         <br />
-        {{ movie.genre_name }}
+        {{ movie.genres_name }}
         <br />
         <button v-on:click="showMovie(movie)">More Info.</button>
         <dialog id="movie-details">
