@@ -18,9 +18,9 @@
       <br />
     </p>
     <p>
-      Genre:
+      <!-- Genre:
       <input type="text" placeholder="Movie Genre" v-model="newMovieGenre" />
-      <br />
+      <br /> -->
       <br />
 
       <button v-on:click="createMovie()">Add Movie</button>
@@ -33,8 +33,8 @@
         <br />
         {{ movie.year }}
         <br />
-        {{ movie.genres_name }}
-        <br />
+        <!-- {{ movie.genres_name }}
+        <br /> -->
         <button v-on:click="showMovie(movie)">More Info.</button>
         <dialog id="movie-details">
           <form method="dialog">
@@ -51,10 +51,10 @@
               Year:
               <input type="text" v-model="currentMovie.year" />
             </p>
-            <p>
+            <!-- <p>
               Genre:
               <input type="text" v-model="currentMovie.genre_name" />
-            </p>
+            </p> -->
             <button v-on:click="updateMovie(currentMovie)">Update</button>
             <button v-on:click="destroyMovie(currentMovie)">Delete</button>
             <button>Close</button>

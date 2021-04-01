@@ -1,6 +1,10 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+import MoviesIndex from "../views/MoviesIndex.vue";
+import MoviesNew from "../views/MoviesNew.vue";
+import MoviesShow from "../views/MoviesShow.vue";
+import MoviesEdit from "../views/MoviesEdit.vue";
 import Signup from "../views/Signup.vue";
 import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
@@ -22,6 +26,10 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ "../views/About.vue"),
   },
+  { path: "/movies", name: "MoviesIndex", component: MoviesIndex },
+  { path: "/movies/new", name: "Movies-new", component: MoviesNew },
+  { path: "/movies/:id", name: "Movies-show", component: MoviesShow },
+  { path: "/movies/:id/edit", name: "Movies-edit", component: MoviesEdit },
   { path: "/signup", name: "signup", component: Signup },
   { path: "/login", name: "login", component: Login },
   { path: "/logout", name: "logout", component: Logout },
