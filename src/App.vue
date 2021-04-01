@@ -52,6 +52,12 @@
         </ul>
       </div>
     </nav>
+    <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Welcome to my movie site!</h1>
+    <p class="lead">All movie lovers are welcome to add to the site.</p>
+  </div>
+</div>
     <!-- <router-link to="/">Home</router-link>
     |
     <router-link to="/movies">All Movies</router-link>

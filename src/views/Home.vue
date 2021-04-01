@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1>{{ message }}</h1>
+    <!-- <h1>{{ message }}</h1>
     <h2>Add a Movie.</h2>
     <p>
       Title:
@@ -17,11 +17,11 @@
       <input type="text" placeholder="Movie Year" v-model="newMovieYear" />
       <br />
     </p>
-    <p>
+    <p> -->
       <!-- Genre:
       <input type="text" placeholder="Movie Genre" v-model="newMovieGenre" />
       <br /> -->
-      <br />
+      <!-- <br />
 
       <button v-on:click="createMovie()">Add Movie</button>
     </p>
@@ -32,10 +32,10 @@
         {{ movie.plot }}
         <br />
         {{ movie.year }}
-        <br />
+        <br /> -->
         <!-- {{ movie.genres_name }}
         <br /> -->
-        <button v-on:click="showMovie(movie)">More Info.</button>
+        <!-- <button v-on:click="showMovie(movie)">More Info.</button>
         <dialog id="movie-details">
           <form method="dialog">
             <h1>Movie Info</h1>
@@ -50,18 +50,18 @@
             <p>
               Year:
               <input type="text" v-model="currentMovie.year" />
-            </p>
+            </p> -->
             <!-- <p>
               Genre:
               <input type="text" v-model="currentMovie.genre_name" />
             </p> -->
-            <button v-on:click="updateMovie(currentMovie)">Update</button>
+            <!-- <button v-on:click="updateMovie(currentMovie)">Update</button>
             <button v-on:click="destroyMovie(currentMovie)">Delete</button>
             <button>Close</button>
           </form>
         </dialog>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 <style></style>
