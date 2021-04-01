@@ -1,6 +1,21 @@
 <template>
   <div class="movies-new">
-    <div>
+    <form>
+      <div class="form-group">
+        <label for="exampleInputTitle">Title</label>
+        <input type="text" class="form-control" id="exampleInputTitle" placeholder="Title" v-model="movieTitle" />
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPlot">Plot</label>
+        <input type="text" class="form-control" id="exampleInputPlot" placeholder="Plot" v-model="moviePlot" />
+      </div>
+      <div class="form-group">
+        <label for="exampleInputYear">Year</label>
+        <input type="integer" class="form-control" id="exampleInputYear" placeholder="Year" v-model="movieYear" />
+      </div>
+      <button type="submit" class="btn btn-primary" v-on:click="createMovie()">Submit</button>
+    </form>
+    <!-- <div>
       <h2>Add a movie.</h2>
       <p>
         Title:
@@ -18,7 +33,7 @@
       <p>
         <button v-on:click="createMovie()">Add Movie</button>
       </p>
-    </div>
+    </div> -->
   </div>
 </template>
 
