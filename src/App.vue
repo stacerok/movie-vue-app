@@ -44,20 +44,24 @@
               Account
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <router-link to="/login" class="dropdown-item">Login</router-link>
-              <router-link to="/logout" class="dropdown-item">Logout</router-link>
-              <router-link to="/signup" class="dropdown-item">Sign Up</router-link>
+              <span v-if="isLoggedIn()">
+                <router-link to="/logout" class="dropdown-item">Logout</router-link>
+              </span>
+              <span v-else>
+                <router-link to="/login" class="dropdown-item">Login</router-link>
+                <router-link to="/signup" class="dropdown-item">Sign Up</router-link>
+              </span>
             </div>
           </li>
         </ul>
       </div>
     </nav>
     <div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-4">Welcome to my movie site!</h1>
-    <p class="lead">All movie lovers are welcome to add to the site.</p>
-  </div>
-</div>
+      <div class="container">
+        <h1 class="display-4">Welcome to my movie site!</h1>
+        <p class="lead">All movie lovers are welcome to add to the site.</p>
+      </div>
+    </div>
     <!-- <router-link to="/">Home</router-link>
     |
     <router-link to="/movies">All Movies</router-link>
@@ -79,3 +83,13 @@ body {
   font-family: Candara, Calibri, Segoe, Segoe UI, Optima, Arial, sans-serif;
 }
 </style>
+
+<script>
+export default {
+  methods: {
+    isLoggedIn: function () {
+      return localStorage.getItem("jwt");
+    },
+  },
+};
+</script>
